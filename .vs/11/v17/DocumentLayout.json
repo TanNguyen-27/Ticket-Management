@@ -1,25 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Windows\\source\\repos\\11\\",
+  "WorkspaceRootPath": "C:\\Users\\ACER\\Desktop\\ticket\\Ticket-Management\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BAD9B069-534C-488A-BBA1-7A1F43B499C9}|11\\11.csproj|c:\\users\\windows\\source\\repos\\11\\11\\content\\hieuungtrangbia.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{BAD9B069-534C-488A-BBA1-7A1F43B499C9}|11\\11.csproj|solutionrelative:11\\content\\hieuungtrangbia.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{BAD9B069-534C-488A-BBA1-7A1F43B499C9}|11\\11.csproj|c:\\users\\acer\\desktop\\ticket\\ticket-management\\11\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{BAD9B069-534C-488A-BBA1-7A1F43B499C9}|11\\11.csproj|solutionrelative:11\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BAD9B069-534C-488A-BBA1-7A1F43B499C9}|11\\11.csproj|c:\\users\\windows\\source\\repos\\11\\11\\views\\ves\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BAD9B069-534C-488A-BBA1-7A1F43B499C9}|11\\11.csproj|solutionrelative:11\\views\\ves\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAD9B069-534C-488A-BBA1-7A1F43B499C9}|11\\11.csproj|C:\\Users\\Windows\\source\\repos\\11\\11\\controllers\\vescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BAD9B069-534C-488A-BBA1-7A1F43B499C9}|11\\11.csproj|C:\\Users\\ACER\\Desktop\\ticket\\Ticket-Management\\11\\controllers\\vescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BAD9B069-534C-488A-BBA1-7A1F43B499C9}|11\\11.csproj|solutionrelative:11\\controllers\\vescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BAD9B069-534C-488A-BBA1-7A1F43B499C9}|11\\11.csproj|C:\\Users\\Windows\\source\\repos\\11\\11\\views\\sukiens\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BAD9B069-534C-488A-BBA1-7A1F43B499C9}|11\\11.csproj|solutionrelative:11\\views\\sukiens\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BAD9B069-534C-488A-BBA1-7A1F43B499C9}|11\\11.csproj|C:\\Users\\ACER\\Desktop\\ticket\\Ticket-Management\\11\\views\\ves\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BAD9B069-534C-488A-BBA1-7A1F43B499C9}|11\\11.csproj|solutionrelative:11\\views\\ves\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BAD9B069-534C-488A-BBA1-7A1F43B499C9}|11\\11.csproj|C:\\Users\\Windows\\source\\repos\\11\\11\\views\\ves\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{BAD9B069-534C-488A-BBA1-7A1F43B499C9}|11\\11.csproj|C:\\Users\\ACER\\Desktop\\ticket\\Ticket-Management\\11\\views\\ves\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{BAD9B069-534C-488A-BBA1-7A1F43B499C9}|11\\11.csproj|solutionrelative:11\\views\\ves\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
@@ -30,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 247,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,11 +46,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\ACER\\Desktop\\ticket\\Ticket-Management\\11\\.gitignore",
+              "RelativeDocumentMoniker": "11\\.gitignore",
+              "ToolTip": "C:\\Users\\ACER\\Desktop\\ticket\\Ticket-Management\\11\\.gitignore",
+              "RelativeToolTip": "11\\.gitignore",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-17T10:08:35.471Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\Windows\\source\\repos\\11\\11\\Views\\Ves\\Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\ACER\\Desktop\\ticket\\Ticket-Management\\11\\Views\\Ves\\Edit.cshtml",
               "RelativeDocumentMoniker": "11\\Views\\Ves\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\Windows\\source\\repos\\11\\11\\Views\\Ves\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\ACER\\Desktop\\ticket\\Ticket-Management\\11\\Views\\Ves\\Edit.cshtml",
               "RelativeToolTip": "11\\Views\\Ves\\Edit.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -62,59 +71,27 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Windows\\source\\repos\\11\\11\\Views\\Ves\\Index.cshtml",
-              "RelativeDocumentMoniker": "11\\Views\\Ves\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Windows\\source\\repos\\11\\11\\Views\\Ves\\Index.cshtml",
-              "RelativeToolTip": "11\\Views\\Ves\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-24T03:37:16.359Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Windows\\source\\repos\\11\\11\\Views\\SuKiens\\Index.cshtml",
-              "RelativeDocumentMoniker": "11\\Views\\SuKiens\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Windows\\source\\repos\\11\\11\\Views\\SuKiens\\Index.cshtml",
-              "RelativeToolTip": "11\\Views\\SuKiens\\Index.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACIAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-17T07:52:55.261Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ACER\\Desktop\\ticket\\Ticket-Management\\11\\Views\\Ves\\Index.cshtml",
+              "RelativeDocumentMoniker": "11\\Views\\Ves\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ACER\\Desktop\\ticket\\Ticket-Management\\11\\Views\\Ves\\Index.cshtml",
+              "RelativeToolTip": "11\\Views\\Ves\\Index.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAACEAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-24T03:37:16.359Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "VesController.cs",
-              "DocumentMoniker": "C:\\Users\\Windows\\source\\repos\\11\\11\\Controllers\\VesController.cs",
+              "DocumentMoniker": "C:\\Users\\ACER\\Desktop\\ticket\\Ticket-Management\\11\\Controllers\\VesController.cs",
               "RelativeDocumentMoniker": "11\\Controllers\\VesController.cs",
-              "ToolTip": "C:\\Users\\Windows\\source\\repos\\11\\11\\Controllers\\VesController.cs",
+              "ToolTip": "C:\\Users\\ACER\\Desktop\\ticket\\Ticket-Management\\11\\Controllers\\VesController.cs",
               "RelativeToolTip": "11\\Controllers\\VesController.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAqwDsAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAkwFsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-23T15:29:43.751Z"
-            }
-          ]
-        },
-        {
-          "DockedWidth": 247,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "hieuungTrangbia.css",
-              "DocumentMoniker": "C:\\Users\\Windows\\source\\repos\\11\\11\\Content\\hieuungTrangbia.css",
-              "RelativeDocumentMoniker": "11\\Content\\hieuungTrangbia.css",
-              "ToolTip": "C:\\Users\\Windows\\source\\repos\\11\\11\\Content\\hieuungTrangbia.css",
-              "RelativeToolTip": "11\\Content\\hieuungTrangbia.css",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAwwG8AAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-04-17T08:21:23.375Z",
-              "EditorCaption": ""
             }
           ]
         }
