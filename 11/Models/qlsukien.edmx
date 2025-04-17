@@ -1,0 +1,474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="QL_SuKienAmNhacModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DanhGia">
+          <Key>
+            <PropertyRef Name="MaDanhGia" />
+          </Key>
+          <Property Name="MaDanhGia" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaSuKien" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaKhachHang" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SoSao" Type="int" />
+          <Property Name="NoiDung" Type="text" />
+          <Property Name="NgayDanhGia" Type="date" />
+        </EntityType>
+        <EntityType Name="DatVe">
+          <Key>
+            <PropertyRef Name="MaDatVe" />
+          </Key>
+          <Property Name="MaDatVe" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaKhachHang" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaVe" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SoLuong" Type="int" Nullable="false" />
+          <Property Name="TongTien" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="NgayDat" Type="date" />
+        </EntityType>
+        <EntityType Name="KhachHang">
+          <Key>
+            <PropertyRef Name="MaKhachHang" />
+          </Key>
+          <Property Name="MaKhachHang" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TenDangNhap" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="55" Nullable="false" />
+          <Property Name="SoDienThoai" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="NgheSi">
+          <Key>
+            <PropertyRef Name="MaNgheSi" />
+          </Key>
+          <Property Name="MaNgheSi" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaSuKien" Type="varchar" MaxLength="10" />
+          <Property Name="TenNgheSi" Type="nvarchar" MaxLength="55" Nullable="false" />
+          <Property Name="TheLoai" Type="nvarchar" MaxLength="100" />
+          <Property Name="QuocGia" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SuKien">
+          <Key>
+            <PropertyRef Name="MaSuKien" />
+          </Key>
+          <Property Name="MaSuKien" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TenSuKien" Type="nvarchar" MaxLength="55" Nullable="false" />
+          <Property Name="NgayToChuc" Type="date" Nullable="false" />
+          <Property Name="DiaDiem" Type="nvarchar" MaxLength="55" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ve">
+          <Key>
+            <PropertyRef Name="MaVe" />
+          </Key>
+          <Property Name="MaVe" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaSuKien" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="LoaiVe" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GiaVe" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="SoLuong" Type="int" Nullable="false" />
+          <Property Name="AnhVe" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK__DanhGia__MaKhach__48CFD27E">
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DanhGia" Type="Self.DanhGia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="MaKhachHang" />
+            </Principal>
+            <Dependent Role="DanhGia">
+              <PropertyRef Name="MaKhachHang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DanhGia__MaSuKie__47DBAE45">
+          <End Role="SuKien" Type="Self.SuKien" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DanhGia" Type="Self.DanhGia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SuKien">
+              <PropertyRef Name="MaSuKien" />
+            </Principal>
+            <Dependent Role="DanhGia">
+              <PropertyRef Name="MaSuKien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DatVe__MaKhachHa__4316F928">
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DatVe" Type="Self.DatVe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="MaKhachHang" />
+            </Principal>
+            <Dependent Role="DatVe">
+              <PropertyRef Name="MaKhachHang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DatVe__MaVe__440B1D61">
+          <End Role="Ve" Type="Self.Ve" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DatVe" Type="Self.DatVe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ve">
+              <PropertyRef Name="MaVe" />
+            </Principal>
+            <Dependent Role="DatVe">
+              <PropertyRef Name="MaVe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NgheSi__MaSuKien__398D8EEE">
+          <End Role="SuKien" Type="Self.SuKien" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NgheSi" Type="Self.NgheSi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SuKien">
+              <PropertyRef Name="MaSuKien" />
+            </Principal>
+            <Dependent Role="NgheSi">
+              <PropertyRef Name="MaSuKien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ve__MaSuKien__3C69FB99">
+          <End Role="SuKien" Type="Self.SuKien" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ve" Type="Self.Ve" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SuKien">
+              <PropertyRef Name="MaSuKien" />
+            </Principal>
+            <Dependent Role="Ve">
+              <PropertyRef Name="MaSuKien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QL_SuKienAmNhacModelStoreContainer">
+          <EntitySet Name="DanhGia" EntityType="Self.DanhGia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DatVe" EntityType="Self.DatVe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NgheSi" EntityType="Self.NgheSi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SuKien" EntityType="Self.SuKien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ve" EntityType="Self.Ve" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__DanhGia__MaKhach__48CFD27E" Association="Self.FK__DanhGia__MaKhach__48CFD27E">
+            <End Role="KhachHang" EntitySet="KhachHang" />
+            <End Role="DanhGia" EntitySet="DanhGia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DanhGia__MaSuKie__47DBAE45" Association="Self.FK__DanhGia__MaSuKie__47DBAE45">
+            <End Role="SuKien" EntitySet="SuKien" />
+            <End Role="DanhGia" EntitySet="DanhGia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DatVe__MaKhachHa__4316F928" Association="Self.FK__DatVe__MaKhachHa__4316F928">
+            <End Role="KhachHang" EntitySet="KhachHang" />
+            <End Role="DatVe" EntitySet="DatVe" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DatVe__MaVe__440B1D61" Association="Self.FK__DatVe__MaVe__440B1D61">
+            <End Role="Ve" EntitySet="Ve" />
+            <End Role="DatVe" EntitySet="DatVe" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NgheSi__MaSuKien__398D8EEE" Association="Self.FK__NgheSi__MaSuKien__398D8EEE">
+            <End Role="SuKien" EntitySet="SuKien" />
+            <End Role="NgheSi" EntitySet="NgheSi" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ve__MaSuKien__3C69FB99" Association="Self.FK__Ve__MaSuKien__3C69FB99">
+            <End Role="SuKien" EntitySet="SuKien" />
+            <End Role="Ve" EntitySet="Ve" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QL_SuKienAmNhacModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DanhGia">
+          <Key>
+            <PropertyRef Name="MaDanhGia" />
+          </Key>
+          <Property Name="MaDanhGia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaSuKien" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaKhachHang" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SoSao" Type="Int32" />
+          <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NgayDanhGia" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="KhachHang" Relationship="Self.FK__DanhGia__MaKhach__48CFD27E" FromRole="DanhGia" ToRole="KhachHang" />
+          <NavigationProperty Name="SuKien" Relationship="Self.FK__DanhGia__MaSuKie__47DBAE45" FromRole="DanhGia" ToRole="SuKien" />
+        </EntityType>
+        <EntityType Name="DatVe">
+          <Key>
+            <PropertyRef Name="MaDatVe" />
+          </Key>
+          <Property Name="MaDatVe" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaKhachHang" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaVe" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SoLuong" Type="Int32" Nullable="false" />
+          <Property Name="TongTien" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="NgayDat" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="KhachHang" Relationship="Self.FK__DatVe__MaKhachHa__4316F928" FromRole="DatVe" ToRole="KhachHang" />
+          <NavigationProperty Name="Ve" Relationship="Self.FK__DatVe__MaVe__440B1D61" FromRole="DatVe" ToRole="Ve" />
+        </EntityType>
+        <EntityType Name="KhachHang">
+          <Key>
+            <PropertyRef Name="MaKhachHang" />
+          </Key>
+          <Property Name="MaKhachHang" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenDangNhap" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SoDienThoai" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DanhGias" Relationship="Self.FK__DanhGia__MaKhach__48CFD27E" FromRole="KhachHang" ToRole="DanhGia" />
+          <NavigationProperty Name="DatVes" Relationship="Self.FK__DatVe__MaKhachHa__4316F928" FromRole="KhachHang" ToRole="DatVe" />
+        </EntityType>
+        <EntityType Name="NgheSi">
+          <Key>
+            <PropertyRef Name="MaNgheSi" />
+          </Key>
+          <Property Name="MaNgheSi" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaSuKien" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TenNgheSi" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TheLoai" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="QuocGia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SuKien" Relationship="Self.FK__NgheSi__MaSuKien__398D8EEE" FromRole="NgheSi" ToRole="SuKien" />
+        </EntityType>
+        <EntityType Name="SuKien">
+          <Key>
+            <PropertyRef Name="MaSuKien" />
+          </Key>
+          <Property Name="MaSuKien" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenSuKien" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NgayToChuc" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DiaDiem" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DanhGias" Relationship="Self.FK__DanhGia__MaSuKie__47DBAE45" FromRole="SuKien" ToRole="DanhGia" />
+          <NavigationProperty Name="NgheSis" Relationship="Self.FK__NgheSi__MaSuKien__398D8EEE" FromRole="SuKien" ToRole="NgheSi" />
+          <NavigationProperty Name="Ves" Relationship="Self.FK__Ve__MaSuKien__3C69FB99" FromRole="SuKien" ToRole="Ve" />
+        </EntityType>
+        <EntityType Name="Ve">
+          <Key>
+            <PropertyRef Name="MaVe" />
+          </Key>
+          <Property Name="MaVe" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaSuKien" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LoaiVe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GiaVe" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="SoLuong" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DatVes" Relationship="Self.FK__DatVe__MaVe__440B1D61" FromRole="Ve" ToRole="DatVe" />
+          <NavigationProperty Name="SuKien" Relationship="Self.FK__Ve__MaSuKien__3C69FB99" FromRole="Ve" ToRole="SuKien" />
+          <Property Name="AnhVe" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK__DanhGia__MaKhach__48CFD27E">
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DanhGia" Type="Self.DanhGia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="MaKhachHang" />
+            </Principal>
+            <Dependent Role="DanhGia">
+              <PropertyRef Name="MaKhachHang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DanhGia__MaSuKie__47DBAE45">
+          <End Role="SuKien" Type="Self.SuKien" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DanhGia" Type="Self.DanhGia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SuKien">
+              <PropertyRef Name="MaSuKien" />
+            </Principal>
+            <Dependent Role="DanhGia">
+              <PropertyRef Name="MaSuKien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DatVe__MaKhachHa__4316F928">
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DatVe" Type="Self.DatVe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="MaKhachHang" />
+            </Principal>
+            <Dependent Role="DatVe">
+              <PropertyRef Name="MaKhachHang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DatVe__MaVe__440B1D61">
+          <End Role="Ve" Type="Self.Ve" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DatVe" Type="Self.DatVe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ve">
+              <PropertyRef Name="MaVe" />
+            </Principal>
+            <Dependent Role="DatVe">
+              <PropertyRef Name="MaVe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NgheSi__MaSuKien__398D8EEE">
+          <End Role="SuKien" Type="Self.SuKien" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NgheSi" Type="Self.NgheSi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SuKien">
+              <PropertyRef Name="MaSuKien" />
+            </Principal>
+            <Dependent Role="NgheSi">
+              <PropertyRef Name="MaSuKien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ve__MaSuKien__3C69FB99">
+          <End Role="SuKien" Type="Self.SuKien" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ve" Type="Self.Ve" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SuKien">
+              <PropertyRef Name="MaSuKien" />
+            </Principal>
+            <Dependent Role="Ve">
+              <PropertyRef Name="MaSuKien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QL_SuKienAmNhacEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DanhGias" EntityType="Self.DanhGia" />
+          <EntitySet Name="DatVes" EntityType="Self.DatVe" />
+          <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
+          <EntitySet Name="NgheSis" EntityType="Self.NgheSi" />
+          <EntitySet Name="SuKiens" EntityType="Self.SuKien" />
+          <EntitySet Name="Ves" EntityType="Self.Ve" />
+          <AssociationSet Name="FK__DanhGia__MaKhach__48CFD27E" Association="Self.FK__DanhGia__MaKhach__48CFD27E">
+            <End Role="KhachHang" EntitySet="KhachHangs" />
+            <End Role="DanhGia" EntitySet="DanhGias" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DanhGia__MaSuKie__47DBAE45" Association="Self.FK__DanhGia__MaSuKie__47DBAE45">
+            <End Role="SuKien" EntitySet="SuKiens" />
+            <End Role="DanhGia" EntitySet="DanhGias" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DatVe__MaKhachHa__4316F928" Association="Self.FK__DatVe__MaKhachHa__4316F928">
+            <End Role="KhachHang" EntitySet="KhachHangs" />
+            <End Role="DatVe" EntitySet="DatVes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DatVe__MaVe__440B1D61" Association="Self.FK__DatVe__MaVe__440B1D61">
+            <End Role="Ve" EntitySet="Ves" />
+            <End Role="DatVe" EntitySet="DatVes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NgheSi__MaSuKien__398D8EEE" Association="Self.FK__NgheSi__MaSuKien__398D8EEE">
+            <End Role="SuKien" EntitySet="SuKiens" />
+            <End Role="NgheSi" EntitySet="NgheSis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ve__MaSuKien__3C69FB99" Association="Self.FK__Ve__MaSuKien__3C69FB99">
+            <End Role="SuKien" EntitySet="SuKiens" />
+            <End Role="Ve" EntitySet="Ves" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QL_SuKienAmNhacModelStoreContainer" CdmEntityContainer="QL_SuKienAmNhacEntities1">
+          <EntitySetMapping Name="DanhGias">
+            <EntityTypeMapping TypeName="QL_SuKienAmNhacModel.DanhGia">
+              <MappingFragment StoreEntitySet="DanhGia">
+                <ScalarProperty Name="MaDanhGia" ColumnName="MaDanhGia" />
+                <ScalarProperty Name="MaSuKien" ColumnName="MaSuKien" />
+                <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
+                <ScalarProperty Name="SoSao" ColumnName="SoSao" />
+                <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+                <ScalarProperty Name="NgayDanhGia" ColumnName="NgayDanhGia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DatVes">
+            <EntityTypeMapping TypeName="QL_SuKienAmNhacModel.DatVe">
+              <MappingFragment StoreEntitySet="DatVe">
+                <ScalarProperty Name="MaDatVe" ColumnName="MaDatVe" />
+                <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
+                <ScalarProperty Name="MaVe" ColumnName="MaVe" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+                <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KhachHangs">
+            <EntityTypeMapping TypeName="QL_SuKienAmNhacModel.KhachHang">
+              <MappingFragment StoreEntitySet="KhachHang">
+                <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
+                <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NgheSis">
+            <EntityTypeMapping TypeName="QL_SuKienAmNhacModel.NgheSi">
+              <MappingFragment StoreEntitySet="NgheSi">
+                <ScalarProperty Name="MaNgheSi" ColumnName="MaNgheSi" />
+                <ScalarProperty Name="MaSuKien" ColumnName="MaSuKien" />
+                <ScalarProperty Name="TenNgheSi" ColumnName="TenNgheSi" />
+                <ScalarProperty Name="TheLoai" ColumnName="TheLoai" />
+                <ScalarProperty Name="QuocGia" ColumnName="QuocGia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SuKiens">
+            <EntityTypeMapping TypeName="QL_SuKienAmNhacModel.SuKien">
+              <MappingFragment StoreEntitySet="SuKien">
+                <ScalarProperty Name="MaSuKien" ColumnName="MaSuKien" />
+                <ScalarProperty Name="TenSuKien" ColumnName="TenSuKien" />
+                <ScalarProperty Name="NgayToChuc" ColumnName="NgayToChuc" />
+                <ScalarProperty Name="DiaDiem" ColumnName="DiaDiem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ves">
+            <EntityTypeMapping TypeName="QL_SuKienAmNhacModel.Ve">
+              <MappingFragment StoreEntitySet="Ve">
+                <ScalarProperty Name="AnhVe" ColumnName="AnhVe" />
+                <ScalarProperty Name="MaVe" ColumnName="MaVe" />
+                <ScalarProperty Name="MaSuKien" ColumnName="MaSuKien" />
+                <ScalarProperty Name="LoaiVe" ColumnName="LoaiVe" />
+                <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,125 @@
+﻿/* Tạo nền động với gradient xanh biển và đen */
+body {
+    background: linear-gradient(135deg, #003366, #000000); /* Sử dụng gradient từ xanh biển đậm sang đen */
+    background-size: 400% 400%; /* Tăng độ bao phủ của gradient */
+    animation: gradientBG 15s ease infinite; /* Hiệu ứng chuyển động của gradient */
+    font-family: Arial, sans-serif; /* Chọn font chữ cho trang */
+}
+/* Hiệu ứng chuyển động nền */
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%; /* Vị trí ban đầu */
+    }
+
+    50% {
+        background-position: 100% 50%; /* Vị trí giữa */
+    }
+
+    100% {
+        background-position: 0% 50%; /* Vị trí kết thúc */
+    }
+}
+/* Style Table */
+table {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Table Header */
+th {
+    background: linear-gradient(45deg, #ff4b2b, #ff416c);
+    color: white;
+    padding: 15px;
+    text-transform: uppercase;
+}
+
+/* Table Rows */
+td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Hover Effect */
+tr:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transition: 0.3s;
+}
+
+/* Links Style */
+a {
+    color: #ff416c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    a:hover {
+        color: #ff4b2b;
+        text-decoration: underline;
+    }
+
+/* Đảm bảo tất cả văn bản trong bảng đều có màu trắng */
+th, td {
+    color: white !important;
+}
+
+/* Đảm bảo chữ trong các hàng cũng màu trắng */
+tr td {
+    color: pink !important;
+}
+
+/* Đảm bảo các liên kết trong bảng có màu trắng */
+
+
+td a:hover {
+    color: #ffcccb !important; /* Khi di chuột vào, màu sáng lên nhẹ */
+}
+
+.header {
+    display: flex;
+    justify-content: flex-start; /* Đẩy các phần tử về bên trái */
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    gap: 20px; /* Khoảng cách giữa các phần tử */
+}
+
+.create-btn {
+    background: linear-gradient(45deg, #ff4b2b, #ff416c);
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+    .create-btn:hover {
+        background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    }
+
+#searchInput {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ff4b2b;
+    border-radius: 5px;
+    outline: none;
+    width: 220px;
+    background-color: #16213e; /* Nền màu tối cho phù hợp */
+    color: white; /* Màu chữ trắng */
+}
+
+    #searchInput::placeholder {
+        color: #bbbbbb; /* Màu placeholder nhẹ */
+    }
+
+.ticket-img {
+    width: 130px; /* Kích thước ảnh */
+    height: 130px;
+    border-radius: 5px; /* Bo góc nhẹ */
+    object-fit: cover; /* Hiển thị ảnh đúng tỉ lệ */
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="13b1788d00b844a8acd523699bd1b9e0" Name="Diagram1">
+        <EntityTypeShape EntityType="QL_SuKienAmNhacModel.DanhGia" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_SuKienAmNhacModel.DatVe" Width="1.5" PointX="5.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_SuKienAmNhacModel.KhachHang" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_SuKienAmNhacModel.NgheSi" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_SuKienAmNhacModel.SuKien" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_SuKienAmNhacModel.Ve" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <AssociationConnector Association="QL_SuKienAmNhacModel.FK__DanhGia__MaKhach__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_SuKienAmNhacModel.FK__DanhGia__MaSuKie__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_SuKienAmNhacModel.FK__DatVe__MaKhachHa__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_SuKienAmNhacModel.FK__DatVe__MaVe__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_SuKienAmNhacModel.FK__NgheSi__MaSuKien__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_SuKienAmNhacModel.FK__Ve__MaSuKien__3C69FB99" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<_11.Models.Ve>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>TICKET BOARD</h2>
+<link href="~/Content/hieuungTrangbia.css" rel="stylesheet" />
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <div class="header">
+        <input type="text" placeholder="Tìm kiếm..." />
+    </div>
+
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.MaVe)</th>
+        <th>@Html.DisplayNameFor(model => model.LoaiVe)</th>
+        <th>@Html.DisplayNameFor(model => model.GiaVe)</th>
+        <th>@Html.DisplayNameFor(model => model.SoLuong)</th>
+        <th>@Html.DisplayNameFor(model => model.SuKien.MaSuKien)</th>
+        <th>Ảnh</th>  <!-- Thêm cột ảnh -->
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.MaVe)</td>
+            <td>@Html.DisplayFor(modelItem => item.LoaiVe)</td>
+            <td>@Html.DisplayFor(modelItem => item.GiaVe)</td>
+            <td>@Html.DisplayFor(modelItem => item.SoLuong)</td>
+            <td>@Html.DisplayFor(modelItem => item.SuKien.MaSuKien)</td>
+            <td>
+                @if (!string.IsNullOrEmpty(item.AnhVe))
+                {
+                    <img src="@Url.Content("~/" + item.AnhVe)" alt="Ảnh vé" style="width:100px; height:auto;">
+                }
+                else
+                {
+                    <span>Không có ảnh</span>
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaVe }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaVe }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaVe })
+            </td>
+        </tr>
+    }
+</table>
+

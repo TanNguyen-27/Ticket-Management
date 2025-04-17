@@ -1,0 +1,90 @@
+﻿@model _11.Models.Ve
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+@using (Html.BeginForm("Create", "Ves", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaVe) <br />
+        @Html.EditorFor(model => model.MaVe, new { htmlAttributes = new { @class = "form-control" } })<br />
+        @Html.ValidationMessageFor(model => model.MaVe, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaSuKien) <br />
+        @Html.EditorFor(model => model.MaSuKien, new { htmlAttributes = new { @class = "form-control" } })<br />
+        @Html.ValidationMessageFor(model => model.MaSuKien, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.LoaiVe) <br />
+        @Html.EditorFor(model => model.LoaiVe, new { htmlAttributes = new { @class = "form-control" } })<br />
+        @Html.ValidationMessageFor(model => model.LoaiVe, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.GiaVe) <br />
+        @Html.EditorFor(model => model.GiaVe, new { htmlAttributes = new { @class = "form-control" } })<br />
+        @Html.ValidationMessageFor(model => model.GiaVe, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SoLuong) <br />
+        @Html.EditorFor(model => model.SoLuong, new { htmlAttributes = new { @class = "form-control" } })<br />
+        @Html.ValidationMessageFor(model => model.SoLuong, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <label for="TicketImage">Ảnh Vé</label> <br />
+
+        <!-- File Input -->
+        <input id="TicketImage" name="file" type="file" class="form-control" onchange="previewImage(event)" />
+
+        <!-- Image Preview -->
+        <br />
+        <img id="preview"
+             style="width:100px; height:auto; display:block; margin-top:10px;">
+    </div>
+
+    <div asp-validation-summary="All"></div>
+
+    <button type="submit" class="btn btn-primary">Tạo Vé</button>
+    <button type="reset">Reset</button>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script>
+    var preview = document.getElementById("preview");
+
+    function previewImage(event) {
+        var input = event.target;
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                preview.src = e.target.result;
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    // Fix for reset button
+    addEventListener("reset", function (event) {
+        // Resetting the preview image to the default empty state
+        preview.src = "";
+    });
+
+</script>
