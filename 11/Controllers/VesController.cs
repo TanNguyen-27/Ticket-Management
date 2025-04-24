@@ -80,12 +80,13 @@ namespace _11.Controllers
             {
                 try
                 {
-                    // Tạo đường dẫn thư mục "Images" nếu chưa tồn tại
-                    string folderPath = Server.MapPath("~/Images");
+                    // Tạo đường dẫn thư mục "Uploads" nếu chưa tồn tại
+                    string folderPath = Server.MapPath("~/Uploads");
                     if (!Directory.Exists(folderPath))
                     {
                         Directory.CreateDirectory(folderPath);
                     }
+                        Debug.WriteLine("folder patth " + folderPath);
 
                     // Đặt tên file ngẫu nhiên để tránh trùng
                     fileName = Path.GetFileName(file.FileName); 
@@ -95,7 +96,7 @@ namespace _11.Controllers
                     file.SaveAs(filePath);
 
                     // Save the relative file path to the database (not the full physical path)
-                    ve.AnhVe = "Images/" + fileName;
+                    ve.AnhVe = "Uploads/" + fileName;
                 }
                 catch (Exception ex)
                 {
@@ -161,7 +162,7 @@ namespace _11.Controllers
                 if (file != null && file.ContentLength > 0)
                 {
 
-                    string folderPath = Server.MapPath("~/Images");
+                    string folderPath = Server.MapPath("~/Uploads");
                     if (!Directory.Exists(folderPath))
                     {
                         Directory.CreateDirectory(folderPath);
@@ -170,7 +171,7 @@ namespace _11.Controllers
                     fileName = Path.GetFileName(file.FileName);
                     string filePath = Path.Combine(folderPath, fileName);
                     file.SaveAs(filePath);
-                    ve.AnhVe = "Images/" + fileName;
+                    ve.AnhVe = "Uploads/" + fileName;
                 }
                 else
                 {
