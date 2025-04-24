@@ -1,33 +1,359 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Home";
 }
 
-<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-    </section>
-
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
+<div class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="container position-relative">
+        <div class="row align-items-center min-vh-75">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <span class="badge bg-primary-soft mb-3">Welcome to the Future of Ticketing</span>
+                    <h1 class="display-3 fw-bold mb-4">Smart Ticket Management</h1>
+                    <p class="lead mb-4">Transform your event management with our cutting-edge platform. Create, track, and analyze tickets with unprecedented ease.</p>
+                    <div class="d-flex gap-3">
+                        <a href="@Url.Action("Index", "Ves")" class="btn btn-primary btn-lg btn-glow">
+                            <i class="fas fa-ticket-alt me-2"></i>Manage Tickets
+                        </a>
+                        <a href="@Url.Action("Create", "Ves")" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-plus-circle me-2"></i>Create New Ticket
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 d-none d-lg-block">
+                <div class="hero-image-container">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3652/3652191.png" alt="Ticket Management" class="img-fluid hero-image">
+                    <div class="floating-elements">
+                        <div class="floating-element element-1"></div>
+                        <div class="floating-element element-2"></div>
+                        <div class="floating-element element-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</main>
+</div>
+
+<div class="features-section py-5">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <span class="badge bg-primary-soft mb-3">Features</span>
+            <h2 class="display-5 fw-bold">Powerful Features for Your Events</h2>
+            <p class="lead text-muted">Everything you need to manage your events efficiently</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <h3>Smart Ticket Management</h3>
+                    <p>Create and manage tickets with our intuitive interface. Set prices, quantities, and more with just a few clicks.</p>
+                    <div class="feature-hover-content">
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check-circle me-2"></i>Easy ticket creation</li>
+                            <li><i class="fas fa-check-circle me-2"></i>Bulk management</li>
+                            <li><i class="fas fa-check-circle me-2"></i>Custom templates</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Advanced Analytics</h3>
+                    <p>Get real-time insights into your ticket sales and event performance with our comprehensive analytics dashboard.</p>
+                    <div class="feature-hover-content">
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check-circle me-2"></i>Real-time tracking</li>
+                            <li><i class="fas fa-check-circle me-2"></i>Sales reports</li>
+                            <li><i class="fas fa-check-circle me-2"></i>Performance metrics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Customer Management</h3>
+                    <p>Manage your customers and their ticket purchases efficiently with our integrated customer management system.</p>
+                    <div class="feature-hover-content">
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check-circle me-2"></i>Customer profiles</li>
+                            <li><i class="fas fa-check-circle me-2"></i>Purchase history</li>
+                            <li><i class="fas fa-check-circle me-2"></i>Communication tools</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cta-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <div class="cta-content">
+                    <span class="badge bg-primary-soft mb-3">Get Started</span>
+                    <h2 class="display-5 fw-bold mb-4">Ready to Transform Your Event Management?</h2>
+                    <p class="lead mb-4">Join thousands of successful event organizers who trust our platform for their ticketing needs.</p>
+                    <a href="@Url.Action("Create", "Ves")" class="btn btn-primary btn-lg btn-glow">
+                        <i class="fas fa-rocket me-2"></i>Create Your First Ticket
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --primary-color: #3498db;
+        --secondary-color: #2c3e50;
+        --accent-color: #2980b9;
+        --primary-soft: rgba(52, 152, 219, 0.1);
+    }
+
+    .hero-section {
+        position: relative;
+        padding: 6rem 0;
+        background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+        color: white;
+        overflow: hidden;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.1)"/></svg>');
+        opacity: 0.1;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .badge {
+        padding: 0.5rem 1rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+    }
+
+    .bg-primary-soft {
+        background-color: var(--primary-soft);
+        color: var(--primary-color);
+    }
+
+    .hero-image-container {
+        position: relative;
+    }
+
+    .hero-image {
+        max-width: 100%;
+        height: auto;
+        animation: float 6s ease-in-out infinite;
+        filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+    }
+
+    .floating-elements {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .floating-element {
+        position: absolute;
+        background: rgba(255,255,255,0.1);
+        border-radius: 50%;
+    }
+
+    .element-1 {
+        width: 100px;
+        height: 100px;
+        top: 20%;
+        left: 10%;
+        animation: float 8s ease-in-out infinite;
+    }
+
+    .element-2 {
+        width: 60px;
+        height: 60px;
+        top: 60%;
+        right: 15%;
+        animation: float 6s ease-in-out infinite reverse;
+    }
+
+    .element-3 {
+        width: 40px;
+        height: 40px;
+        bottom: 20%;
+        left: 20%;
+        animation: float 4s ease-in-out infinite;
+    }
+
+    @@keyframes float {
+        0% {
+            transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+            transform: translateY(-20px) rotate(5deg);
+        }
+        100% {
+            transform: translateY(0px) rotate(0deg);
+        }
+    }
+
+    .feature-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+
+    .feature-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .feature-card:hover .feature-icon {
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    .feature-icon i {
+        font-size: 2rem;
+        color: white;
+    }
+
+    .feature-card h3 {
+        color: var(--secondary-color);
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    .feature-card p {
+        color: #6c757d;
+        margin-bottom: 1.5rem;
+    }
+
+    .feature-hover-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 2rem;
+        background: linear-gradient(to top, white, rgba(255,255,255,0.9));
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover .feature-hover-content {
+        transform: translateY(0);
+    }
+
+    .feature-hover-content ul li {
+        margin-bottom: 0.5rem;
+        color: var(--secondary-color);
+    }
+
+    .feature-hover-content ul li i {
+        color: var(--primary-color);
+    }
+
+    .cta-section {
+        background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+        color: white;
+        padding: 6rem 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .cta-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.1)"/></svg>');
+        opacity: 0.1;
+    }
+
+    .cta-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .btn-glow {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-glow::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+        transform: rotate(45deg);
+        animation: glow 3s infinite;
+    }
+
+    @@keyframes glow {
+        0% {
+            transform: rotate(45deg) translateX(-100%);
+        }
+        100% {
+            transform: rotate(45deg) translateX(100%);
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .hero-section {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero-section .btn {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card {
+            margin-bottom: 1.5rem;
+        }
+
+        .display-3 {
+            font-size: 2.5rem;
+        }
+    }
+</style>

@@ -1,50 +1,302 @@
 ﻿@model _11.Models.Ve
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Ticket Details";
 }
 
-<h2>Details</h2>
+<div class="ticket-details-container">
+    <div class="header-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="display-4 mb-0">Ticket Details</h1>
+                    <p class="lead text-muted">View and manage ticket information</p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <a href="@Url.Action("Index")" class="btn btn-outline-light">
+                        <i class="fas fa-arrow-left me-2"></i>Back to List
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div>
-    <h4>Ve</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.LoaiVe)
-        </dt>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card shadow-lg mb-4">
+                    <div class="card-body">
+                        <div class="ticket-header mb-4">
+                            <div class="ticket-badge">
+                                <i class="fas fa-ticket-alt me-2"></i>@Model.LoaiVe
+                            </div>
+                            <h2 class="ticket-title">@Model.MaVe</h2>
+                        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.LoaiVe)
-        </dd>
+                        <div class="ticket-info">
+                            <div class="info-item">
+                                <div class="info-label">
+                                    <i class="fas fa-tag me-2"></i>Ticket Type
+                                </div>
+                                <div class="info-value">@Model.LoaiVe</div>
+                            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.GiaVe)
-        </dt>
+                            <div class="info-item">
+                                <div class="info-label">
+                                    <i class="fas fa-dollar-sign me-2"></i>Price
+                                </div>
+                                <div class="info-value">@Model.GiaVe.ToString("C")</div>
+                            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.GiaVe)
-        </dd>
+                            <div class="info-item">
+                                <div class="info-label">
+                                    <i class="fas fa-box me-2"></i>Quantity
+                                </div>
+                                <div class="info-value">
+                                    <div class="progress" style="height: 8px;">
+                                        <div class="progress-bar @(Model.SoLuong > 50 ? "bg-success" : Model.SoLuong > 20 ? "bg-warning" : "bg-danger")" 
+                                             role="progressbar" 
+                                             style="width: @(Model.SoLuong)%" 
+                                             aria-valuenow="@Model.SoLuong" 
+                                             aria-valuemin="0" 
+                                             aria-valuemax="100">
+                                        </div>
+                                    </div>
+                                    <small class="text-muted">@Model.SoLuong tickets remaining</small>
+                                </div>
+                            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SoLuong)
-        </dt>
+                            <div class="info-item">
+                                <div class="info-label">
+                                    <i class="fas fa-calendar-alt me-2"></i>Event
+                                </div>
+                                <div class="info-value">@Model.SuKien.TenSuKien</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.SoLuong)
-        </dd>
+            <div class="col-lg-4">
+                <div class="card shadow-lg">
+                    <div class="card-body">
+                        <h5 class="card-title mb-4">
+                            <i class="fas fa-image me-2"></i>Ticket Image
+                        </h5>
+                        @if (!string.IsNullOrEmpty(Model.AnhVe))
+                        {
+                            <div class="ticket-image-container">
+                                <img src="@Url.Content("~/" + Model.AnhVe)" 
+                                     alt="Ticket Image" 
+                                     class="img-fluid rounded"
+                                     data-bs-toggle="modal" 
+                                     data-bs-target="#imageModal"
+                                     data-image="@Url.Content("~/" + Model.AnhVe)">
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="no-image-placeholder">
+                                <i class="fas fa-image"></i>
+                                <p>No image available</p>
+                            </div>
+                        }
+                    </div>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SuKien.TenSuKien)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SuKien.TenSuKien)
-        </dd>
-
-    </dl>
+                <div class="card shadow-lg mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title mb-4">
+                            <i class="fas fa-cogs me-2"></i>Actions
+                        </h5>
+                        <div class="d-grid gap-2">
+                            <a href="@Url.Action("Edit", new { id = Model.MaVe })" class="btn btn-primary">
+                                <i class="fas fa-edit me-2"></i>Edit Ticket
+                            </a>
+                            <a href="@Url.Action("Delete", new { id = Model.MaVe })" class="btn btn-outline-danger">
+                                <i class="fas fa-trash-alt me-2"></i>Delete Ticket
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaVe }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<!-- Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalLabel">Ticket Image</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="" class="img-fluid" id="modalImage">
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .ticket-details-container {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+
+    .header-section {
+        background: linear-gradient(45deg, #2c3e50, #3498db);
+        color: white;
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+    }
+
+    .card {
+        border-radius: 15px;
+        border: none;
+        overflow: hidden;
+    }
+
+    .ticket-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .ticket-badge {
+        background: linear-gradient(45deg, #3498db, #2980b9);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        font-weight: 500;
+    }
+
+    .ticket-title {
+        margin: 0;
+        color: #2c3e50;
+    }
+
+    .ticket-info {
+        display: grid;
+        gap: 1.5rem;
+    }
+
+    .info-item {
+        display: grid;
+        gap: 0.5rem;
+    }
+
+    .info-label {
+        color: #6c757d;
+        font-weight: 500;
+    }
+
+    .info-value {
+        color: #2c3e50;
+        font-size: 1.1rem;
+    }
+
+    .progress {
+        background-color: #e9ecef;
+        border-radius: 5px;
+        margin-bottom: 0.5rem;
+    }
+
+    .ticket-image-container {
+        text-align: center;
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .ticket-image-container:hover {
+        transform: scale(1.02);
+    }
+
+    .ticket-image-container img {
+        max-height: 300px;
+        object-fit: contain;
+    }
+
+    .no-image-placeholder {
+        text-align: center;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-radius: 10px;
+        color: #6c757d;
+    }
+
+    .no-image-placeholder i {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .btn {
+        padding: 0.75rem 1.5rem;
+        font-weight: 500;
+        border-radius: 8px;
+    }
+
+    .btn-primary {
+        background: linear-gradient(45deg, #3498db, #2980b9);
+        border: none;
+    }
+
+    .btn-outline-danger {
+        border: 2px solid #dc3545;
+    }
+
+    .btn-outline-danger:hover {
+        background: #dc3545;
+        color: white;
+    }
+
+    .modal-content {
+        border-radius: 15px;
+    }
+
+    .modal-header {
+        border-bottom: none;
+        padding: 1rem 1.5rem;
+    }
+
+    .modal-body {
+        padding: 1.5rem;
+    }
+
+    @@media (max-width: 768px) {
+        .header-section {
+            padding: 1.5rem 0;
+        }
+
+        .display-4 {
+            font-size: 2rem;
+        }
+
+        .ticket-header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .ticket-image-container img {
+            max-height: 200px;
+        }
+    }
+</style>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Image Modal
+            $('#imageModal').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget);
+                var imageUrl = button.data('image');
+                var modal = $(this);
+                modal.find('#modalImage').attr('src', imageUrl);
+            });
+        });
+    </script>
+}
