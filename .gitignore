@@ -2,3 +2,7 @@
 11/bin/
 11/obj/
 *.log
+.vs/
+11/bin/
+11/obj/
+*.log
