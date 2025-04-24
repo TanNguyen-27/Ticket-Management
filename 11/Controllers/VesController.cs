@@ -25,6 +25,8 @@ namespace _11.Controllers
 
         // GET: Ves/Details/5
         public ActionResult Details(string id)
+
+
         {
             if (id == null)
             {
